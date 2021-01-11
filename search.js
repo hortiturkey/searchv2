@@ -40,11 +40,16 @@
                    local: searchArray.filter(item => item.type === 'control'),
                });
 
+               var event = new Bloodhound({
+                   datumTokenizer: Bloodhound.tokenizers.obj.whitespace('keywords'),
+                   queryTokenizer: Bloodhound.tokenizers.whitespace,
+                   local: searchArray.filter(item => item.type === 'event'),
+               });
+
                $('#multiple-datasets .typeahead').typeahead({
                        highlight: true,
                        minlenght: 3,
                        hint: true,
-                       compression: true,
                        accent: true
                    }, {
                        name: 'content',
@@ -107,6 +112,23 @@
                            header: `<div class="search2-tt-header"> <h3 class="search2-tt-header-title">Zirai Mücadeleler</h3><a href="/zirai-mucadele-kutuphanesi" class="search2-tt-header-link-box">Tümünü Gör →</a></div>`,
                            suggestion: function (data) {
                                return `<a href="${data.slug}" class="search2-result-control w-inline-block"><div class="post-category-container"><div class="post-tag-colored zirai">ZİRAİ&nbsp;MÜCADELE</div></div><h4 class="search2-result-title max-width">${data.title}</h4><div class="post-category-container"><div class="post-tag-colored author">${data.category}</div><div class="post-tag-dot"></div><div class="post-tag">${data.subCategory}</div></div></a>`
+                           }
+                       }
+                   },
+
+                   {
+                       name: 'event',
+                       display: 'event',
+                       source: event,
+                       limit: 3,
+                       hint: true,
+                       templates: {
+                           header: function (context) {
+                               $(".tt-dataset-event").wrap("<div style='position:relative;'></div>")
+                               return `<div class="overflow-overlay"></div>`;
+                           },
+                           suggestion: function (data) {
+                               return `<a href="${data.slug}" class="search2-result-event w-inline-block"><div class="post-category-container"><div class="post-tag-colored event">FUAR</div><div class="post-tag-dot"></div><div class="post-tag">${data.category}</div><div class="post-tag-dot"></div><div class="post-tag light">${data.year}</div></div><h4 class="search2-result-title max-width">${data.title}</h4><p class="post-paragraph listing search-v2" style="overflow: hidden; text-overflow: ellipsis; -webkit-box-orient: vertical; display: -webkit-box; -webkit-line-clamp: 2;">${data.description}</p><div class="post-category-container"><div class="post-tag-colored author">${data.fullDate}</div><div class="post-tag-dot"></div><div class="post-tag">${data.location}</div></div></a>`
                            }
                        }
                    }

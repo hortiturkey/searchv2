@@ -125,7 +125,7 @@
                        templates: {
                            header: function (context) {
                                $(".tt-dataset-event").wrap("<div style='position:relative;'></div>");
-                               return `<div class="overflow-overlay"></div>` + `< div class = "search2-tt-header" > < h3 class = "search2-tt-header-title" > Fuarlar < /h3><a href="/tarim - fuarlari " class="
+                               return `<div class="overflow-overlay"></div> < div class = "search2-tt-header" > < h3 class = "search2-tt-header-title" > Fuarlar < /h3><a href="/tarim - fuarlari " class="
                                search2 - tt - header - link - box ">Fuar Takvimini Gör →</a></div>`;
                            },
                            suggestion: function (data) {

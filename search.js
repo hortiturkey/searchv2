@@ -109,7 +109,7 @@
                        limit: 4,
                        hint: true,
                        templates: {
-                           header: `<div class="search2-tt-header"> <h3 class="search2-tt-header-title">Zirai Mücadeleler</h3><a href="/zirai-mucadele-kutuphanesi" class="search2-tt-header-link-box">Tümünü Gör →</a></div>`,
+                           header: `<div class="search2-tt-header"> <h3 class="search2-tt-header-title">Zirai Mücadeleler</h3><a href="/zirai-mucadele-kutuphanesi" class="search2-tt-header-link-box">Zirai Mücadele Kütüphanesini Gör →</a></div>`,
                            suggestion: function (data) {
                                return `<a href="${data.slug}" class="search2-result-control w-inline-block"><div class="post-category-container"><div class="post-tag-colored zirai">ZİRAİ&nbsp;MÜCADELE</div></div><h4 class="search2-result-title max-width">${data.title}</h4><div class="post-category-container"><div class="post-tag-colored author">${data.category}</div><div class="post-tag-dot"></div><div class="post-tag">${data.subCategory}</div></div></a>`
                            }
@@ -125,7 +125,7 @@
                        templates: {
                            header: function (context) {
                                $(".tt-dataset-event").wrap("<div style='position:relative;'></div>")
-                               return `<div class="overflow-overlay"></div>`;
+                               return `<div class="overflow-overlay"></div><div class="search2-tt-header"> <h3 class="search2-tt-header-title">Fuarlar/h3><a href="/tarim-fuarlari" class="search2-tt-header-link-box">FUar Takvimini Gör →</a></div>`;
                            },
                            suggestion: function (data) {
                                return `<a href="${data.slug}" class="search2-result-event w-inline-block"><div class="post-category-container"><div class="post-tag-colored event">FUAR</div><div class="post-tag-dot"></div><div class="post-tag">${data.category}</div><div class="post-tag-dot"></div><div class="post-tag light">${data.year}</div></div><h4 class="search2-result-title max-width">${data.title}</h4><p class="post-paragraph listing search-v2" style="overflow: hidden; text-overflow: ellipsis; -webkit-box-orient: vertical; display: -webkit-box; -webkit-line-clamp: 2;">${data.description}</p><div class="post-category-container"><div class="post-tag-colored author">${data.fullDate}</div><div class="post-tag-dot"></div><div class="post-tag">${data.location}</div></div></a>`

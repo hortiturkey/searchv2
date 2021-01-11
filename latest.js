@@ -120,7 +120,7 @@
                        name: 'event',
                        display: 'event',
                        source: event,
-                       limit: 3,
+                       limit: 20,
                        hint: true,
                        templates: {
                            header: function (context) {
